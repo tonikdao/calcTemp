@@ -29,10 +29,6 @@
                 wmGroup = baseWmGroups.FirstOrDefault(g => g.GustSpeed != null);
                 runwayCalculated.CrosswindGust = _CalculateWind(wmGroup, r, "GustSpeed", false);
                 runwayCalculated.TailwindGust = _CalculateWind(wmGroup, r, "GustSpeed", true);
-                runwayCalculated.HorizontalVisibility = baseWmGroups.FirstOrDefault(g => g.Visibility != null)?.Visibility;
-                runwayCalculated.VerticalVisibility = baseWmGroups.FirstOrDefault(g => g.VertVisibility != null)?.VertVisibility;
-                if (runwayCalculated.VerticalVisibility == null)
-                    runwayCalculated.VerticalVisibility = baseWmGroups.FirstOrDefault(g => g.Ceiling != null)?.Ceiling;
 
                 // TEMPO прогноз
                 wmGroup = tempoWmGroups.FirstOrDefault(g => g.WindSpeed != null);
@@ -41,8 +37,6 @@
                 wmGroup = tempoWmGroups.FirstOrDefault(g => g.GustSpeed != null);
                 runwayCalculated.CrosswindGustTempo = _CalculateWind(wmGroup, r, "GustSpeed", false);
                 runwayCalculated.TailwindGustTempo = _CalculateWind(wmGroup, r, "GustSpeed", true);
-                runwayCalculated.HorizontalVisibilityTempo = tempoWmGroups.FirstOrDefault(g => g.Visibility != null)?.Visibility;
-                runwayCalculated.VerticalVisibilityTempo = tempoWmGroups.FirstOrDefault(g => g.VertVisibility != null)?.VertVisibility;
 
                 // ....
                 // [CODE CLIPPED -- ANTON KOVALEV]
